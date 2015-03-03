@@ -42,11 +42,11 @@ for user in users:
             # State
             genreVSstate[user['state']][genre] += 1
 
-releaseVSoccupation.to_csv('data/releaseVSoccupation', index = False)
-releaseVSgender.to_csv('data/releaseVSgender', index = False)
-releaseVSage.to_csv('data/releaseVSage', index = False)
-releaseVSstate.to_csv('data/releaseVSstate', index = False)
-genreVSoccupation.to_csv('data/genreVSoccupation', index = False)
-genreVSgender.to_csv('data/genreVSgender', index = False)
-genreVSage.to_csv('data/genreVSage', index = False)
-genreVSstate.to_csv('data/genreVSstate', index = False)
+releaseVSoccupation.to_csv('data/releaseVSoccupation')
+releaseVSgender.to_csv('data/releaseVSgender')
+releaseVSage.to_csv('data/releaseVSage')
+releaseVSstate.to_csv('data/releaseVSstate')
+genreVSoccupation.to_csv('data/genreVSoccupation')
+genreVSgender.to_csv('data/genreVSgender')
+genreVSage.to_csv('data/genreVSage')
+genreVSstate.to_csv('data/genreVSstate')

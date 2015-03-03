@@ -1,0 +1,32 @@
+\documentclass[11pt]{article}
+%Gummi|065|=)
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{microtype}
+\title{\textbf{Profils utilisateur/utilisateur des données Movielens}}
+\author{Giovanni Zanitti\\
+		Max Halford}
+\date{}
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Introduction}
+
+\section{Analyses Factorielles des Correspondances}
+\subsection{Occupation | Genre}
+\subsection{Occupation | Date de sortie}
+\subsection{Sexe | Genre}
+\subsection{Sexe | Date de sortie}
+\subsection{Age | Genre}
+\subsection{Age | Date de sortie}
+\subsection{Etat | Genre}
+\subsection{Etat | Date de sortie}
+
+\section{Analyse Factorielle Multiple des Correspondances}
+
+\section{Classification}
+
+\section{Conclusions}
+
+\end{document}

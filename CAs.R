@@ -1,9 +1,9 @@
 library('FactoMineR')
 library('ggplot2')
 
-maxCA = function(file) {
+maxCA = function(tableName) {
   # Open the file
-  pathToFile = paste('data', file, sep = '/')
+  pathToFile = paste('data', tableName, sep = '/')
   data = read.csv(pathToFile, head = TRUE)
   # Take the first column as the index
   rownames(data) = data[,1]
@@ -21,23 +21,24 @@ maxCA = function(file) {
     geom_point(data = obs2, aes(Dim.1, Dim.2), col = 'darkgreen') +
     geom_hline(yintercept = 0, col = 'gray') +
     geom_vline(xintercept = 0, col = 'gray') +
-    ggtitle(file)
+    ggtitle(tableName)
+  ggsave(file = paste('rapport/images', paste(tableName, 'png', sep = '.'), sep = '/'))
 }   
 # CA : Genre of a film vs. age of a user 
-maxCA('male/genreVSage')
-maxCA('female/genreVSage')
+maxCA('M_genreVSage')
+maxCA('F_genreVSage')
 # CA : Genre of a film vs. occupation of a user 
-maxCA('male/genreVSoccupation')
-maxCA('female/genreVSoccupation')
-# CA : Genre of a film vs. state of a user 
-maxCA('male/genreVSstate')
-maxCA('female/genreVSstate')
+maxCA('M_genreVSoccupation')
+maxCA('F_genreVSoccupation')
+# CA : Genre of a film vs. region of a user 
+maxCA('M_genreVSregion')
+maxCA('F_genreVSregion')
 # CA : Release date of a film vs. age of a user 
-maxCA('male/releaseVSage')
-maxCA('female/releaseVSage')
+maxCA('M_releaseVSage')
+maxCA('F_releaseVSage')
 # CA : Release date of a film vs. occupation of a user 
-maxCA('male/releaseVSoccupation')
-maxCA('female/releaseVSoccupation')
-# CA : Release date of a film vs. state of a user 
-maxCA('male/releaseVSstate')
-maxCA('female/releaseVSstate')
+maxCA('M_releaseVSoccupation')
+maxCA('F_releaseVSoccupation')
+# CA : Release date of a film vs. region of a user 
+maxCA('M_releaseVSregion')
+maxCA('F_releaseVSregion')

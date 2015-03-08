@@ -4,7 +4,7 @@ library('ggplot2')
 # MCA on all the data
 data = read.csv('data/categorized', head = TRUE)
 # Only keep the relevant data
-data = data[,c('gender', 'occupation', 'ageCategory', 'releaseDecade', 'region')]
+data = data[,c('gender', 'occupation', 'ageCategory', 'releaseDecade', 'region', 'genre')]
 # Randomly sample the data (an MCA is a heavy calculation)
 ###data = data[sample(nrow(data), 2000),]
 # Extract each category with the siez of its space
@@ -23,4 +23,4 @@ ggplot(observations,  aes(Dim.1, Dim.2)) +
   geom_density2d(colour = 'gray80') +
   geom_text(data = variables, aes(Dim.1, Dim.2, label = rownames(variables), colour = Variable)) +
   ggtitle("MCA plot")
-ggsave(file = "plots/mca.pdf")
+#ggsave(file = "plots/mca.pdf")

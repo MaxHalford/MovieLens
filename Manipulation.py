@@ -16,12 +16,12 @@ F_releaseVSoccupation = pd.crosstab(females.occupation, females.releaseDecade)
 F_releaseVSage = pd.crosstab(females.ageCategory, females.releaseDecade)
 F_releaseVSregion = pd.crosstab(females.region, females.releaseDecade)
 # Save the dataframes
-M_releaseVSoccupation.to_csv('data/male/releaseVSoccupation')
-M_releaseVSage.to_csv('data/male/releaseVSage')
-M_releaseVSregion.to_csv('data/male/releaseVSregion')
-F_releaseVSoccupation.to_csv('data/female/releaseVSoccupation')
-F_releaseVSage.to_csv('data/female/releaseVSage')
-F_releaseVSregion.to_csv('data/female/releaseVSregion')
+M_releaseVSoccupation.to_csv('data/M_releaseVSoccupation')
+M_releaseVSage.to_csv('data/M_releaseVSage')
+M_releaseVSregion.to_csv('data/M_releaseVSregion')
+F_releaseVSoccupation.to_csv('data/F_releaseVSoccupation')
+F_releaseVSage.to_csv('data/F_releaseVSage')
+F_releaseVSregion.to_csv('data/F_releaseVSregion')
 '''
 Genres
 '''
@@ -61,9 +61,9 @@ for user in users:
                 F_genreVSage[user['ageCategory']][genre] += 1
                 F_genreVSregion[user['region']][genre] += 1
 # Save the dataframes
-M_genreVSoccupation.to_csv('data/male/genreVSoccupation')
-M_genreVSage.to_csv('data/male/genreVSage')
-M_genreVSregion.to_csv('data/male/genreVSregion')
-F_genreVSoccupation.to_csv('data/female/genreVSoccupation')
-F_genreVSage.to_csv('data/female/genreVSage')
-F_genreVSregion.to_csv('data/female/genreVSregion')
+M_genreVSoccupation.to_csv('data/M_genreVSoccupation')
+M_genreVSage.to_csv('data/M_genreVSage')
+M_genreVSregion.to_csv('data/M_genreVSregion')
+F_genreVSoccupation.to_csv('data/F_genreVSoccupation')
+F_genreVSage.to_csv('data/F_genreVSage')
+F_genreVSregion.to_csv('data/F_genreVSregion')

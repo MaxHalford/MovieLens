@@ -5,7 +5,7 @@
 \textup{\small {\bf Rapport d'étude}}\\[0.2in]
 
 % Title
-\Large \textbf {Etude des données MovieLens}\\[0.5in]
+\Large \textbf {Etude du jeu de données MovieLens}\\[0.5in]
 
        \small \emph{Analyse descriptive du comportement des groupes d'utilisateurs}
         \vspace{.2in}
@@ -22,7 +22,7 @@ Professeur encadrant\\
 {\textbf{Jonathan Louëdec}}\\[0.2in]
 
 \vspace{.2in}
-\includegraphics[width=0.18\textwidth]{./logoSID.png}\\[0.1in]
+\includegraphics[width=0.30\textwidth]{./images/logoSID.png}\\[0.1in]
 
 \end{center}
 

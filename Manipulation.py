@@ -43,9 +43,15 @@ genders = set(df['gender'].get_values())
 ageCategories = set(df['ageCategory'].get_values())
 regions = set(df['region'].get_values())
 # Create the contingency tables
-M_genreVSoccupation = F_genreVSoccupation = pd.DataFrame(index = genres, columns = occupations).fillna(0)
-M_genreVSage = F_genreVSage = pd.DataFrame(index = genres, columns = ageCategories).fillna(0)
-M_genreVSregion = F_genreVSregion = pd.DataFrame(index = genres, columns = regions).fillna(0)
+M_genreVSoccupation = pd.DataFrame(index = genres, columns = occupations).fillna(0)
+F_genreVSoccupation = pd.DataFrame(index = genres, columns = occupations).fillna(0)
+M_genreVSage = pd.DataFrame(index = genres, columns = ageCategories).fillna(0)
+F_genreVSage = pd.DataFrame(index = genres, columns = ageCategories).fillna(0)
+M_genreVSregion = pd.DataFrame(index = genres, columns = regions).fillna(0)
+F_genreVSregion = pd.DataFrame(index = genres, columns = regions).fillna(0)
+# We also need to extract the data for the MCA
+mcaDf = pd.DataFrame(columns = ('gender', 'occupation', 'region',
+                                'ageCategory', 'genre', 'releaseDecade'))
 # Fill the contingency tables
 for user in users:
     if user['gender'] == 'M':
@@ -60,6 +66,7 @@ for user in users:
                 F_genreVSoccupation[user['occupation']][genre] += 1
                 F_genreVSage[user['ageCategory']][genre] += 1
                 F_genreVSregion[user['region']][genre] += 1
+   
 # Save the dataframes
 M_genreVSoccupation.to_csv('data/M_genreVSoccupation')
 M_genreVSage.to_csv('data/M_genreVSage')
@@ -67,3 +74,10 @@ M_genreVSregion.to_csv('data/M_genreVSregion')
 F_genreVSoccupation.to_csv('data/F_genreVSoccupation')
 F_genreVSage.to_csv('data/F_genreVSage')
 F_genreVSregion.to_csv('data/F_genreVSregion')
+
+'''
+MCA data
+'''
+mcaDf = df[['gender', 'occupation', 'region',
+             'ageCategory', 'genre', 'releaseDecade']]
+mcaDf = mcaDf

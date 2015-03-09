@@ -9,7 +9,7 @@ from unidecode import unidecode
 
 # Connect to the database
 client = MongoClient()
-db = client.Projet_Stat_L3.Users
+db = client.MovieLens
 db.Users.drop()
 
 # Get the data
@@ -63,7 +63,7 @@ data = df.dropna().copy()
 # Classify the ages
 data['ageCategory'] = data['age'].apply(lambda age: str(age)[0] + '0s')
 # Classify the release dates
-data['releaseDecade'] = data['releaseDate'].apply(lambda date: '19' + re.search('(\d{4})', date).group(0)[2] + "0's")
+data['releaseDecade'] = data['releaseDate'].apply(lambda date: '19' + re.search('(\d{4})', date).group(0)[2] + "0s")
 # Classify the zip codes
 states = {}
 def zipState(zip):

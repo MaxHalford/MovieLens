@@ -78,7 +78,17 @@ F_genreVSregion.to_csv('data/F_genreVSregion')
 '''
 MCA data
 '''
+# Concatenate
 df['concatenated'] = df['gender'] + ',' + df['occupation'] + ',' + df['region'] + ',' + df['ageCategory'] + ',' + df['releaseDecade']
-mcaDf = pd.concat([pd.Series([row['concatenated']],
-                             row['genre'].split('/'))              
-                    for _, row in df.iterrows()]).reset_index()
+# Split genres
+mcaDf = pd.concat([pd.Series([row['concatenated']], row['genre'].split('/'))              
+                   for _, row in df.iterrows()]).reset_index()
+mcaDf.columns = ('genre', 'concatenated')
+mcaDf['concatenated'] = mcaDf['concatenated'] + ',' + mcaDf['genre']
+# Split column
+mcaDf = pd.DataFrame(mcaDf.concatenated.str.split(',').tolist(),
+                                   columns = ['gender', 'occupation',
+                                              'region', 'ageCategory',
+                                              'releaseDecade', 'genre'])
+# Save
+mcaDf.to_csv('data/mca')

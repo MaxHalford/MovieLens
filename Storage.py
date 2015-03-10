@@ -9,8 +9,8 @@ from unidecode import unidecode
 
 # Connect to the database
 client = MongoClient()
-db = client.MovieLens
-db.Users.drop()
+db = client.MovieLens.Users
+db.drop()
 
 # Get the data
 genres = ('Unknown', 'Action', 'Adventure', 'Animation',

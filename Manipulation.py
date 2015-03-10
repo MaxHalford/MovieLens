@@ -28,7 +28,7 @@ Genres
 
 # Connect to the database
 client = MongoClient()
-db = client.Projet_Stat_L3.Users
+db = client.MovieLens.Users
 # Retrieve all the data
 users = db.find()
 # We split the genres of a film, let's use the database
@@ -78,6 +78,7 @@ F_genreVSregion.to_csv('data/F_genreVSregion')
 '''
 MCA data
 '''
-mcaDf = df[['gender', 'occupation', 'region',
-             'ageCategory', 'genre', 'releaseDecade']]
-mcaDf = mcaDf
+df['concatenated'] = df['gender'] + ',' + df['occupation'] + ',' + df['region'] + ',' + df['ageCategory'] + ',' + df['releaseDecade']
+mcaDf = pd.concat([pd.Series([row['concatenated']],
+                             row['genre'].split('/'))              
+                    for _, row in df.iterrows()]).reset_index()

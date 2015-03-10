@@ -91,4 +91,4 @@ mcaDf = pd.DataFrame(mcaDf.concatenated.str.split(',').tolist(),
                                               'region', 'ageCategory',
                                               'releaseDecade', 'genre'])
 # Save
-mcaDf.to_csv('data/mca')
+mcaDf.to_csv('data/mca', index = False)

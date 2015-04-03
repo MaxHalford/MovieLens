@@ -9,10 +9,10 @@ maxCA = function(tableName) {
   rownames(data) = data[,1]
   data[,1] = NULL
   # Calculate the CA
-  cA = CA(data, graph = FALSE)
+  ca = CA(data, graph = FALSE)
   # Extract the cartesian coordinates of the CA for both variables
-  obs1 = data.frame(cA$col$coord)
-  obs2 = data.frame(cA$row$coord)
+  obs1 = data.frame(ca$col$coord)
+  obs2 = data.frame(ca$row$coord)
   # Plot the two first columns (contains most information)
   ggplot() +
     geom_text(data = obs1, aes(Dim.1, Dim.2), label = rownames(obs1), col = 'purple', hjust = 0, vjust = 0) +
@@ -22,23 +22,25 @@ maxCA = function(tableName) {
     geom_hline(yintercept = 0, col = 'gray') +
     geom_vline(xintercept = 0, col = 'gray') +
     ggtitle(tableName)
-  ggsave(file = paste('rapport/images', paste(tableName, 'png', sep = '.'), sep = '/'))
-}   
-# CA : Genre of a film vs. age of a user 
-maxCA('M_genreVSage')
-maxCA('F_genreVSage')
+  ggsave(file = paste('images', paste(tableName, 'png', sep = '.'), sep = '/'))
+  return (ca)
+}
+
+# CA : Genre of a film vs. age of a user
+F_genreVSage = maxCA('F_genreVSage')
+M_genreVSage = maxCA('M_genreVSage')
 # CA : Genre of a film vs. occupation of a user 
-maxCA('M_genreVSoccupation')
-maxCA('F_genreVSoccupation')
+F_genreVSoccupation = maxCA('F_genreVSoccupation')
+M_genreVSoccupation = maxCA('M_genreVSoccupation')
 # CA : Genre of a film vs. region of a user 
-maxCA('M_genreVSregion')
-maxCA('F_genreVSregion')
+F_genreVSregion = maxCA('F_genreVSregion')
+M_genreVSregion = maxCA('M_genreVSregion')
 # CA : Release date of a film vs. age of a user 
-maxCA('M_releaseVSage')
-maxCA('F_releaseVSage')
+F_releaseVSage = maxCA('F_releaseVSage')
+M_releaseVSage = maxCA('M_releaseVSage')
 # CA : Release date of a film vs. occupation of a user 
-maxCA('M_releaseVSoccupation')
-maxCA('F_releaseVSoccupation')
-# CA : Release date of a film vs. region of a user 
-maxCA('M_releaseVSregion')
-maxCA('F_releaseVSregion')
+F_releaseVSoccupation = maxCA('F_releaseVSoccupation')
+M_releaseVSoccupation = maxCA('M_releaseVSoccupation')
+# CA : Release date of a film vs. region of a user
+F_releaseVSregion = maxCA('F_releaseVSregion')
+M_releaseVSregion = maxCA('M_releaseVSregion')

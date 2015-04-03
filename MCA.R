@@ -3,9 +3,11 @@ library('ggplot2')
 
 # MCA on all the data
 data = read.csv('data/mca', head = TRUE)
-# Randomly sample the data (an MCA is a heavy calculation)
-data = data[sample(nrow(data), 10000),]
-# Extract each category with the siez of its space
+# Select only a few variables
+#data = data[c('gender', 'region', 'ageCategory')]
+# Randomly sample the data (HCPC is a heavy calculation)
+data = data[sample(nrow(data), 5000),]
+# Extract each category with the size of its space
 categories = apply(data, 2, function(x) nlevels(as.factor(x)))
 # Compute the MCA
 mca = MCA(data, graph = FALSE)
@@ -23,4 +25,13 @@ ggplot(observations,  aes(Dim.1, Dim.2)) +
   ggtitle("MCA plot")
 
 # Classification
-HCPC(mca)
+mca = MCA(data, ncp=40, graph = FALSE)
+hcpc = HCPC(mca)
+# Variables that mostly influence the dendogram
+hcpc$desc.var$test.chi2
+# Parangons
+hcpc$desc.ind$para
+# Variable modalities for each cluster
+hcpc$desc.var$category
+# Cluster of each individual
+table(hcpc$data.clust$clust)
